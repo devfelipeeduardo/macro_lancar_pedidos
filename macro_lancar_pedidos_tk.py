@@ -6,13 +6,12 @@ from tkinter import *
 
 janela = Tk()
 janela.title('Legenda') #Título
-janela.geometry('450x80') #Dimensão
+janela.geometry('450x100') #Dimensão
 janela.config(bg='white') #Configura a cor do Fundo
 janela.resizable(width=False, height=False) # Não permite alteração na Largura e Altura
 # janela.iconphoto(False, PhotoImage(file='icone_macro.ico')) # Ícone
 
 fonte_geral = ('Arial 10 bold')
-
 class Labels:
     def __init__(self, largura_cmd, altura_cmd, cmd, pos_x_cmd, pos_y_cmd, \
                  largura_texto, altura_texto, texto, fonte_texto, pos_x_texto, pos_y_texto):
@@ -61,6 +60,7 @@ label_cliente_retira = Labels(6, 2, '"', 330, 10, \
 label_altera= Labels(6, 2, '\\', 390, 10, \
                   7, 1, 'Altera', fonte_geral, 380, 50)
 
+
 label_baixa.cria_label_cmd()
 label_sobe.cria_label_cmd()
 label_caixa_pesos.cria_label_cmd()
@@ -69,6 +69,13 @@ label_lanca.cria_label_cmd()
 label_pendente.cria_label_cmd()
 label_cliente_retira.cria_label_cmd()
 label_altera.cria_label_cmd()
+
+def altera_dia_de_lancamento():
+    lanca_para_hoje = True
+
+var1 = IntVar()
+check_lanca_pen = Checkbutton(janela, text="Dia Seg", variable=var1, onvalue=1, offvalue=0, command=altera_dia_de_lancamento)
+check_lanca_pen.place(x=207, y=75)
 
 print('Macro Ligado...')
 
@@ -108,10 +115,13 @@ def fecha_pedido_com_preco_novo():
     clica1(857, 512, 0.75)
     clica1(857, 512, 0.25)
     clica1( 64, 106, 0.20)
-    # Utilizar quando for lançar para o dia posterior
-    pg.hotkey('up')
-    pg.hotkey('tab')
-    pg.hotkey('tab')
+    
+    if (var1.get() == 1):
+        pg.hotkey('up')
+        pg.hotkey('tab')
+        pg.hotkey('tab')
+    else:
+        pass
 
 def fecha_pedido_com_preco_pendente():
     clica1(388, 104, 0   )
