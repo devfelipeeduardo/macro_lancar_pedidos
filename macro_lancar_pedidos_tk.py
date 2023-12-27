@@ -1,8 +1,11 @@
  # from os import system
+import sys
 import keyboard
 import pyautogui as pg
 from tkinter import *
 
+#Transformar em EXECUTÁVEL:
+#pyinstaller macro_lancar_pedidos_tk.py --noconsole --onefile --icon=icone_macro.ico
 
 janela = Tk()
 janela.title('Legenda') #Título
@@ -70,8 +73,15 @@ label_pendente.cria_label_cmd()
 label_cliente_retira.cria_label_cmd()
 label_altera.cria_label_cmd()
 
+
+def fecha_programa():
+    sys.exit()
+
+botao_fechar = Button(janela, text='Fechar', command=fecha_programa)
+botao_fechar.place(x=390, y= 75)
+
 def altera_dia_de_lancamento():
-    lanca_para_hoje = True
+    pass
 
 var1 = IntVar()
 check_lanca_pen = Checkbutton(janela, text="Dia Seg", variable=var1, onvalue=1, offvalue=0, command=altera_dia_de_lancamento)
@@ -120,8 +130,6 @@ def fecha_pedido_com_preco_novo():
         pg.hotkey('up')
         pg.hotkey('tab')
         pg.hotkey('tab')
-    else:
-        pass
 
 def fecha_pedido_com_preco_pendente():
     clica1(388, 104, 0   )
