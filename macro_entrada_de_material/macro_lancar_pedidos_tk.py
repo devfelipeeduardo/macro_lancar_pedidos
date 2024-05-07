@@ -1,4 +1,5 @@
  # from os import system
+import os
 import sys
 import keyboard
 import pyautogui as pg
@@ -16,8 +17,18 @@ janela.resizable(width=False, height=False) # Não permite alteração na Largur
 
 fonte_geral = ('Arial 10 bold')
 class Labels:
-    def __init__(self, largura_cmd, altura_cmd, cmd, pos_x_cmd, pos_y_cmd, \
-                 largura_texto, altura_texto, texto, fonte_texto, pos_x_texto, pos_y_texto):
+    def __init__(self, largura_cmd,
+                        altura_cmd,
+                        cmd,
+                        pos_x_cmd,
+                        pos_y_cmd,
+                        largura_texto,
+                        altura_texto,
+                        texto,
+                        fonte_texto,
+                        pos_x_texto,
+                        pos_y_texto
+                        ):
         
         self.largura_cmd = largura_cmd
         self.altura_cmd = altura_cmd
@@ -32,67 +43,156 @@ class Labels:
         self.pos_x_texto = pos_x_texto
         self.pos_y_texto = pos_y_texto
 
-    def cria_label_cmd(self):
+    def cria_label(self):
         label = Label(janela, width=self.largura_cmd, height=self.altura_cmd, text=self.cmd)
         label.place(x=self.pos_x_cmd, y=self.pos_y_cmd)
         label_texto = Label(janela, width=self.largura_texto, height=self.altura_texto, text=self.texto, font=self.fonte_texto)
         label_texto.place(x=self.pos_x_texto, y=self.pos_y_texto)
 
 
-label_baixa = Labels(5, 2, 'F1', 10, 10, \
-                  5, 1, 'Baixa', fonte_geral, 10, 50)
+label_baixa = Labels(largura_cmd=5, 
+                             altura_cmd = 2,
+                             cmd ='F1',
+                             pos_x_cmd=10,
+                             pos_y_cmd=10,
+                             largura_texto= 5,
+                             altura_texto=1,
+                             texto= 'Baixa',
+                             fonte_texto= fonte_geral,
+                             pos_x_texto=10,
+                             pos_y_texto= 50)
 
-label_sobe = Labels(5, 2, 'F2', 60, 10, \
-                  5, 1, 'Sobe', fonte_geral, 60, 50)
+label_sobe = Labels(largura_cmd=5,
+                              altura_cmd = 2,
+                              cmd ='F2', 
+                              pos_x_cmd=60,
+                              pos_y_cmd=10, \
+                              largura_texto= 5,
+                              altura_texto=1,
+                              texto= 'Sobe',
+                              fonte_texto=fonte_geral, 
+                              pos_x_texto=60,  
+                              pos_y_texto= 50)
 
-label_caixa_pesos = Labels(5, 2, 'F3', 110, 10, \
-                  5, 1, 'Caixa', fonte_geral, 110, 50)
+label_caixa_pesos = Labels(largura_cmd=5,
+                              altura_cmd = 2,
+                              cmd ='F3', 
+                              pos_x_cmd=110,
+                              pos_y_cmd=10, \
+                              largura_texto= 5,
+                              altura_texto=1,
+                              texto= 'Caixa',
+                              fonte_texto=fonte_geral, 
+                              pos_x_texto=110, 
+                              pos_y_texto= 50)
 
-label_conclui = Labels(5, 2, 'F5', 165, 10, \
-                  6, 1, 'Conclui', fonte_geral, 160, 50)
+label_conclui = Labels(largura_cmd=5,
+                              altura_cmd = 2,
+                              cmd ='F5', 
+                              pos_x_cmd=165,
+                              pos_y_cmd=10, \
+                              largura_texto= 6,
+                              altura_texto=1,
+                              texto= 'Conclui',
+                              fonte_texto=fonte_geral, 
+                              pos_x_texto=160,
+                              pos_y_texto= 50)
 
-label_lanca = Labels(5, 2, 'F6', 215, 10, \
-                  5, 1, 'Lança', fonte_geral, 215, 50)
+label_lanca = Labels(largura_cmd=5,
+                              altura_cmd = 2,
+                              cmd ='F6', 
+                              pos_x_cmd=215,
+                              pos_y_cmd=10, \
+                              largura_texto= 5,
+                              altura_texto=1,
+                              texto= 'Lança',
+                              fonte_texto=fonte_geral, 
+                              pos_x_texto=215,
+                              pos_y_texto= 50)
 
-label_pendente = Labels(6, 2, 'CRLT+F', 270, 10, \
-                  7, 1, 'Pendente', fonte_geral, 265, 50)
+label_pendente = Labels(largura_cmd=6,
+                              altura_cmd = 2,
+                              cmd ='CRLT+F', 
+                              pos_x_cmd=270,
+                              pos_y_cmd=10, \
+                              largura_texto= 7,
+                              altura_texto=1,
+                              texto= 'Pendente',
+                              fonte_texto=fonte_geral, 
+                              pos_x_texto=265,
+                              pos_y_texto= 50)
 
-label_cliente_retira = Labels(6, 2, '"', 330, 10, \
-                  5, 1, 'Retira', fonte_geral, 335, 50)
+label_cliente_retira = Labels(largura_cmd=6,
+                              altura_cmd = 2,
+                              cmd ='"', 
+                              pos_x_cmd=330,
+                              pos_y_cmd=10, \
+                              largura_texto= 5,
+                              altura_texto=1,
+                              texto= 'Retira',
+                              fonte_texto=fonte_geral, 
+                              pos_x_texto=335,
+                              pos_y_texto= 50)
 
-label_altera= Labels(6, 2, '\\', 390, 10, \
-                  7, 1, 'Altera', fonte_geral, 380, 50)
+label_altera= Labels(largura_cmd=6,
+                              altura_cmd = 2,
+                              cmd = '\\', 
+                              pos_x_cmd =390,
+                              pos_y_cmd =10, \
+                              largura_texto = 7,
+                              altura_texto =1,
+                              texto = 'Altera',
+                              fonte_texto= fonte_geral, 
+                              pos_x_texto= 380,
+                              pos_y_texto= 50)
 
-label_escreve_devolucao= Labels(6, 2, 'F12', 450, 10, \
-                  7, 1, 'Devol.', fonte_geral, 440, 50)
+label_escreve_devolucao= Labels(largura_cmd = 6,
+                              altura_cmd = 2,
+                              cmd = 'F12',
+                              pos_x_cmd = 450,
+                              pos_y_cmd =10, \
+                              largura_texto = 7,
+                              altura_texto= 1,
+                              texto = 'Devol.',
+                              fonte_texto= fonte_geral, 
+                              pos_x_texto= 440,
+                              pos_y_texto= 50)
 
 
-label_baixa.cria_label_cmd()
-label_sobe.cria_label_cmd()
-label_caixa_pesos.cria_label_cmd()
-label_conclui.cria_label_cmd()
-label_lanca.cria_label_cmd()
-label_pendente.cria_label_cmd()
-label_cliente_retira.cria_label_cmd()
-label_altera.cria_label_cmd()
-label_escreve_devolucao.cria_label_cmd()
+label_baixa.cria_label()
+label_sobe.cria_label()
+label_caixa_pesos.cria_label()
+label_conclui.cria_label()
+label_lanca.cria_label()
+label_pendente.cria_label()
+label_cliente_retira.cria_label()
+label_altera.cria_label()
+label_escreve_devolucao.cria_label()
 
 
 def fecha_programa():
     sys.exit()
 
-botao_fechar = Button(janela, text='Fechar', command=fecha_programa)
+botao_fechar = Button(janela, 
+                      text='Fechar', 
+                      command=fecha_programa)
+
 botao_fechar.place(x=390, y= 75)
 
-def altera_dia_de_lancamento():
-    pass
-
 var1 = IntVar()
-check_lanca_pen = Checkbutton(janela, text="Dia Seg", variable=var1, onvalue=1, offvalue=0, command=altera_dia_de_lancamento)
+check_lanca_pen = Checkbutton(janela,
+                              text="Dia Seg",
+                              variable=var1,
+                              onvalue=1, offvalue=0)
+
 check_lanca_pen.place(x=207, y=75)
 
 var2 = IntVar()
-check_baixa_ent = Checkbutton(janela, text="f1_ent", variable=var2, onvalue=1, offvalue=0, command=altera_dia_de_lancamento)
+check_baixa_ent = Checkbutton(janela,
+                              text="f1_ent",
+                              variable=var2, 
+                              onvalue=1, offvalue=0)
+
 check_baixa_ent.place(x=0, y=75)
 
 print('Macro Ligado...')
@@ -163,6 +263,10 @@ def abre_pedido():
 def escreve_devolucao():
     pg.write("DEVOLUCAO PARCIAL REFERENTE A NOTA FISCAL N°  EMISSAO:  ")
 
+def reinicia_macro():
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+
 
 comando('f1', baixa_item) # Baixa um item no pedido
 comando('f2', sobe_item)  # Sobe item no pedido
@@ -173,6 +277,7 @@ comando('f6', fecha_pedido_com_preco_novo) # Autodescritivo
 comando('ctrl+f', fecha_pedido_com_preco_pendente) # Autodescritivo
 comando('f12', escreve_devolucao) # Autodescritivo
 comando('\'', cliente_retira) # Cliente Retira 
+comando('f10', reinicia_macro) # Cliente Retira 
 # comando('f7', abre_pedido) # Abre pedido clicando duas vezes 
 
 
