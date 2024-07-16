@@ -235,7 +235,8 @@ def fecha_pedido_com_peso():
 
 def fecha_pedido_com_preco_novo():
     clica1(388, 104, 0   )
-    clica1(857, 512, 0.75)
+    clica1(1418, 598, 0.5)
+    clica1(1418, 598, 0.5)
     clica1(857, 512, 0.25)
     clica1( 64, 106, 0.20)
     
@@ -262,10 +263,33 @@ def abre_pedido():
 
 def escreve_devolucao():
     pg.write("DEVOLUCAO PARCIAL REFERENTE A NOTA FISCAL N°  EMISSAO:  ")
+     
+def marca_10_quadrados_cte():
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    pg.hotkey('space')
+    pg.hotkey('down')
+    
 
-def reinicia_macro():
-    python = sys.executable
-    os.execl(python, python, * sys.argv)
+# def reinicia_macro():
+#     python = sys.executable
+#     os.execl(python, python, * sys.argv)
 
 
 comando('f1', baixa_item) # Baixa um item no pedido
@@ -277,7 +301,8 @@ comando('f6', fecha_pedido_com_preco_novo) # Autodescritivo
 comando('ctrl+f', fecha_pedido_com_preco_pendente) # Autodescritivo
 comando('f12', escreve_devolucao) # Autodescritivo
 comando('\'', cliente_retira) # Cliente Retira 
-comando('f10', reinicia_macro) # Cliente Retira 
+# comando('f10', reinicia_macro) # Teste para reiniciar o macro, mas não reinicia! 
+comando('f11', marca_10_quadrados_cte) # Cliente Retira 
 # comando('f7', abre_pedido) # Abre pedido clicando duas vezes 
 
 
